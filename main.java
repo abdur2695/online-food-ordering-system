@@ -1,23 +1,34 @@
 package main;
 
-import dao.UserDAO;
-import model.User;
+import dao.OrderDAO;
+import model.Order;
+
+import java.time.LocalDateTime;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        UserDAO dao = new UserDAO();
+        OrderDAO dao = new OrderDAO();
 
-        User user = dao.login("abdur@gmail.com", "1234");
+        Order order = new Order();
 
-        if (user != null) {
+        order.setUserId(1);
+        order.setTotal(450);
+        order.setOrderDate(LocalDateTime.now());
 
-            System.out.println("Welcome " + user.getName());
+        int orderId = dao.placeOrder(order);
 
-        } else {
+        if(orderId != -1){
 
-            System.out.println("Invalid Login");
+            System.out.println("Order Placed Successfully");
+            System.out.println("Order ID : " + orderId);
+
+        }else{
+
+            System.out.println("Order Failed");
+
         }
+
     }
 }
