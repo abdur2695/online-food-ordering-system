@@ -1,0 +1,7 @@
+INSERT INTO food(name,category,price)
+VALUES
+('Chicken Biryani','Main Course',220),
+('Veg Fried Rice','Rice',150),
+('Burger','Fast Food',120),
+('Pizza','Fast Food',300),
+('Chicken 65','Starter',180);
