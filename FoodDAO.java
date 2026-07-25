@@ -145,3 +145,72 @@ public class FoodDAO {
         return list;
     }
 }
+// Search Food
+
+public ArrayList<Food> searchFood(String keyword){
+
+    ArrayList<Food> list = new ArrayList<>();
+
+    String sql =
+    "SELECT * FROM food WHERE name LIKE ? OR category LIKE ?";
+
+
+    try{
+
+
+        PreparedStatement ps =
+                con.prepareStatement(sql);
+
+
+        ps.setString(1,"%"+keyword+"%");
+
+        ps.setString(2,"%"+keyword+"%");
+
+
+        ResultSet rs =
+                ps.executeQuery();
+
+
+
+        while(rs.next()){
+
+
+            Food food = new Food();
+
+
+            food.setId(
+                    rs.getInt("id")
+            );
+
+
+            food.setName(
+                    rs.getString("name")
+            );
+
+
+            food.setCategory(
+                    rs.getString("category")
+            );
+
+
+            food.setPrice(
+                    rs.getDouble("price")
+            );
+
+
+            list.add(food);
+
+        }
+
+
+    }
+    catch(Exception e){
+
+        e.printStackTrace();
+
+    }
+
+
+    return list;
+
+}
