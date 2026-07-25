@@ -1,0 +1,11 @@
+Food food = new Food();
+
+food.setId(1);
+
+food.setName("Chicken Fried Rice");
+
+food.setCategory("Rice");
+
+food.setPrice(180);
+
+dao.updateFood(food);
