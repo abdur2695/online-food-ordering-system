@@ -1,0 +1,25 @@
+package main;
+
+import dao.FoodDAO;
+import model.Food;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        FoodDAO dao = new FoodDAO();
+
+        for(Food f : dao.getAllFood()) {
+
+            System.out.println(f.getId());
+
+            System.out.println(f.getName());
+
+            System.out.println(f.getCategory());
+
+            System.out.println(f.getPrice());
+
+            System.out.println("--------------------");
+        }
+    }
+}
