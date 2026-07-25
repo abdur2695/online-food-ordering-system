@@ -1,0 +1,23 @@
+package main;
+
+import dao.FoodDAO;
+import model.Food;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        FoodDAO dao = new FoodDAO();
+
+        Food food = new Food();
+
+        food.setName("Chicken Biryani");
+        food.setCategory("Main Course");
+        food.setPrice(220);
+
+        if(dao.addFood(food))
+            System.out.println("Food Added Successfully");
+        else
+            System.out.println("Failed");
+    }
+}
