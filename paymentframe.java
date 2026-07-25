@@ -100,11 +100,15 @@ public class PaymentFrame extends JFrame implements ActionListener {
 
 
 
-            CartService.clearCart();
+            InvoiceService.generateInvoice(user);
+
+CartService.clearCart();
+
+JOptionPane.showMessageDialog(this,
+        "Invoice Generated Successfully");
 
 
-
-            dispose();
+dispose();
 
 
         }
