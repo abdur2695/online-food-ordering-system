@@ -1,0 +1,5 @@
+for(Food f : dao.searchFood("Chicken")){
+
+    System.out.println(f.getName());
+
+}
