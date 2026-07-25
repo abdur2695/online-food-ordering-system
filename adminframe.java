@@ -328,3 +328,12 @@ public class AdminFrame extends JFrame implements ActionListener {
     }
 
 }
+JButton orderButton;
+
+orderButton = new JButton("View Orders");
+
+orderButton.setBounds(450,160,120,35);
+
+add(orderButton);
+
+orderButton.addActionListener(this);
