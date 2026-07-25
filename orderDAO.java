@@ -110,6 +110,64 @@ public class OrderDAO {
             e.printStackTrace();
 
         }
+        // Get all orders for Admin
+
+public ArrayList<Order> getAllOrders(){
+
+    ArrayList<Order> list = new ArrayList<>();
+
+    String sql = "SELECT * FROM orders ORDER BY orderDate DESC";
+
+
+    try{
+
+        Statement st = con.createStatement();
+
+        ResultSet rs = st.executeQuery(sql);
+
+
+        while(rs.next()){
+
+
+            Order order = new Order();
+
+
+            order.setId(
+                    rs.getInt("id")
+            );
+
+
+            order.setUserId(
+                    rs.getInt("userId")
+            );
+
+
+            order.setTotal(
+                    rs.getDouble("total")
+            );
+
+
+            order.setOrderDate(
+                    rs.getTimestamp("orderDate")
+                    .toLocalDateTime()
+            );
+
+
+            list.add(order);
+
+        }
+
+
+    }catch(Exception e){
+
+        e.printStackTrace();
+
+    }
+
+
+    return list;
+
+}
 
         return list;
     }
