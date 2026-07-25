@@ -1,0 +1,27 @@
+package main;
+
+import dao.UserDAO;
+import model.User;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        UserDAO dao = new UserDAO();
+
+        User user = new User();
+
+        user.setName("Abdur Rashid");
+        user.setEmail("abdur@gmail.com");
+        user.setPassword("1234");
+
+        if (dao.register(user)) {
+
+            System.out.println("Registration Successful");
+
+        } else {
+
+            System.out.println("Registration Failed");
+        }
+    }
+}
