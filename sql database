@@ -1,0 +1,31 @@
+CREATE DATABASE food_ordering;
+
+USE food_ordering;
+
+CREATE TABLE users(
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(100),
+email VARCHAR(100) UNIQUE,
+password VARCHAR(100)
+);
+
+CREATE TABLE food(
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(100),
+category VARCHAR(50),
+price DOUBLE
+);
+
+CREATE TABLE orders(
+id INT PRIMARY KEY AUTO_INCREMENT,
+userId INT,
+total DOUBLE,
+orderDate DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE order_items(
+id INT PRIMARY KEY AUTO_INCREMENT,
+orderId INT,
+foodId INT,
+quantity INT
+);
