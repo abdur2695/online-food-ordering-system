@@ -1,21 +1,23 @@
 package main;
 
-import database.DBConnection;
+import dao.UserDAO;
+import model.User;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        if(DBConnection.getConnection()!=null){
+        UserDAO dao = new UserDAO();
 
-            System.out.println("Database Connected Successfully");
+        User user = dao.login("abdur@gmail.com", "1234");
 
-        }else{
+        if (user != null) {
 
-            System.out.println("Connection Failed");
+            System.out.println("Welcome " + user.getName());
 
+        } else {
+
+            System.out.println("Invalid Login");
         }
-
     }
-
 }
